@@ -1,24 +1,23 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-
-function HomePage() {
-  return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold">Music Roster</h1>
-      <p className="text-sm text-gray-600">Scaffolding in progress…</p>
-    </div>
-  )
-}
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from '@/components/layout/Navbar'
+import DashboardPage from '@/pages/DashboardPage'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <nav className="p-4 border-b">
-        <Link to="/" className="font-medium">Home</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/volunteers" element={<div className="p-6">Volunteers page - coming soon</div>} />
+            <Route path="/roster" element={<div className="p-6">Roster page - coming soon</div>} />
+            <Route path="/roster/generate" element={<div className="p-6">Generate roster page - coming soon</div>} />
+            <Route path="/import" element={<div className="p-6">Import page - coming soon</div>} />
+          </Routes>
+        </main>
+      </div>
     </BrowserRouter>
   )
 }
